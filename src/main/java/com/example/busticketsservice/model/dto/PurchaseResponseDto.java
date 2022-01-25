@@ -9,8 +9,4 @@ public class PurchaseResponseDto {
 
     public String purchaseStatus;
 
-    public PurchaseResponseDto(Long ticketsId, String purchaseStatus) {
-        this.ticketsId = ticketsId;
-        this.purchaseStatus = purchaseStatus;
-    }
 }

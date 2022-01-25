@@ -35,7 +35,7 @@ public class TicketsPayServiceImpl implements TicketsService {
         }
         }*/
 
-        //todo сделать выборку из бд Id билета
+        //todo сделать выборку из бд по Id билета
         @Override
         public String getPurchaseStatus (String uniq){
             StringBuilder result = new StringBuilder();
@@ -56,7 +56,7 @@ public class TicketsPayServiceImpl implements TicketsService {
 
         @Override
         public PurchaseResponseDto payTicket (PurchaseDto purchase){
-            return new PurchaseResponseDto(10L,getPurchaseStatus(generateUniqueId(purchase.getLastName())));
+            return new PurchaseResponseDto();
         }
 
         @Override
