@@ -1,9 +1,8 @@
 package com.example.busticketsservice.service.serviceimpl;
 
 import com.example.busticketsservice.model.dto.PurchaseDto;
-import com.example.busticketsservice.model.dto.PurchaseResponseDto;
 import com.example.busticketsservice.persistence.EPayStatus;
-import com.example.busticketsservice.persistence.repository.RouteListRepository;
+import com.example.busticketsservice.persistence.entity.TicketEntity;
 import com.example.busticketsservice.persistence.repository.TicketsRepository;
 import com.example.busticketsservice.service.TicketsService;
 import lombok.extern.slf4j.Slf4j;
@@ -17,27 +16,14 @@ import java.util.UUID;
 public class TicketsPayServiceImpl implements TicketsService {
 
     private final TicketsRepository ticketsRepository;
-    private final RouteListRepository routeListRepository;
 
-    public TicketsPayServiceImpl(TicketsRepository ticketsRepository, RouteListRepository routeListRepository) {
+    public TicketsPayServiceImpl(TicketsRepository ticketsRepository) {
         this.ticketsRepository = ticketsRepository;
-        this.routeListRepository = routeListRepository;
     }
 
-    /*public void doOrder(OrderDto order) {
-            //если платеж вернул Done зарегить билет и отправить статус куплено
-        RouteListEnity route = routeListRepository.getById(order.getRouteId());
-        if(order.getPurchaseStatus().equals(EPayStatus.DONE.toString())) {
-            TicketEntity ticket = new TicketEntity();
-            ticket.setFirstName(order.getFirstName());
-            ticket.setLastName(order.getLastName());
-            ticket.setRouteListEnity(route);
-        }
-        }*/
 
-        //todo сделать выборку из бд по Id билета
-        @Override
-        public String getPurchaseStatus (String uniq){
+    @Override
+        public String doPurchase (String uniq){
             StringBuilder result = new StringBuilder();
             int e = new Random().nextInt(3);
             switch (e) {
@@ -51,17 +37,26 @@ public class TicketsPayServiceImpl implements TicketsService {
                     result.append(EPayStatus.NEW);
                     break;
             }
+        TicketEntity ticket = ticketsRepository.findByUniquePayId(uniq);
+            ticket.setPurchaseStatus(result.toString());
+            ticketsRepository.save(ticket);
             return result.toString();
         }
 
         @Override
-        public PurchaseResponseDto payTicket (PurchaseDto purchase){
-            return new PurchaseResponseDto();
-        }
+        public String payTicket (PurchaseDto purchase){
+            TicketEntity ticket = ticketsRepository.
+                    findByFirstNameAndLastNameAndRouteListEnity_Price(purchase.getFirstName(),purchase.getLastName(), purchase.getAmount());
+            String uniqueId = generateUniqueId();
+            ticket.setUniquePayId(uniqueId);
+            ticketsRepository.save(ticket);
+        return uniqueId;
+            }
 
         @Override
-        public String generateUniqueId (String data){
+        public String generateUniqueId(){
             return UUID.randomUUID().toString().substring(0,8);
         }
+
     }
 

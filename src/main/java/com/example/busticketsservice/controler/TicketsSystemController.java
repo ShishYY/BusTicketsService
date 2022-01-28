@@ -1,10 +1,10 @@
 package com.example.busticketsservice.controler;
 
+import com.example.busticketsservice.model.dto.BuyTicketDto;
+import com.example.busticketsservice.model.dto.ResponseTicketInfoDto;
 import com.example.busticketsservice.persistence.entity.RouteListEnity;
 import com.example.busticketsservice.service.serviceimpl.RouteListService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -22,4 +22,14 @@ public class TicketsSystemController {
     public List<RouteListEnity> getAllRoutes(){
             return routeListService.getAllRoute();
         }
+
+    @PostMapping(value = "/order")
+    public Long doOrder(@RequestBody BuyTicketDto buyTicketDto){
+       return routeListService.doOrder(buyTicketDto);
+    }
+
+    @GetMapping(value = "/ticketinfo/{id}")
+    public ResponseTicketInfoDto ticketInfo(@PathVariable Long id){
+        return routeListService.ticketInfo(id);
+    }
 }

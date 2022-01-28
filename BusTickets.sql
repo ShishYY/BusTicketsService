@@ -11,7 +11,7 @@ CREATE TABLE "tickets"(
 	"passenger_first_name" VARCHAR (60),
 	"passenger_last_name" VARCHAR(60),
 	"route_id" BIGINT,
-	"uniqueID" TEXT,
+	"unique_pay_id" VARCHAR (10) DEFAULT 'no_pay',
 	"purchase_status" VARCHAR (20)
 );
 CREATE TABLE "route_list"(

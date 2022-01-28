@@ -13,10 +13,4 @@ public class PurchaseDto {
 
     private float amount;
 
-    public PurchaseDto(String firstName, String lastName, Long routeId, float amount) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.routeId = routeId;
-        this.amount = amount;
-    }
 }

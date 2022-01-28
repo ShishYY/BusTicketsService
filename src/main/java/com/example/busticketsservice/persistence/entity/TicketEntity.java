@@ -14,13 +14,16 @@ public class TicketEntity extends BaseEntity {
     @Column(name = "passenger_last_name")
     private String lastName;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "route_id")
     private RouteListEnity routeListEnity;
 
 
     @Column(name = "purchase_status")
     private String purchaseStatus;
+
+    @Column(name = "unique_pay_id")
+    private String uniquePayId;
 
     public TicketEntity() {
     }
@@ -58,9 +61,12 @@ public class TicketEntity extends BaseEntity {
     }
 
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(firstName, lastName, purchaseStatus);
+    public String getUniquePayId() {
+        return uniquePayId;
+    }
+
+    public void setUniquePayId(String uniquePayId) {
+        this.uniquePayId = uniquePayId;
     }
 
     @Override
@@ -70,6 +76,7 @@ public class TicketEntity extends BaseEntity {
                 ", lastName='" + lastName + '\'' +
                 ", routeListEnity=" + routeListEnity +
                 ", purchaseStatus='" + purchaseStatus + '\'' +
+                ", uniquePayId='" + uniquePayId + '\'' +
                 '}';
     }
 
@@ -78,6 +85,11 @@ public class TicketEntity extends BaseEntity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         TicketEntity ticket = (TicketEntity) o;
-        return Objects.equals(firstName, ticket.firstName) && Objects.equals(lastName, ticket.lastName) && Objects.equals(routeListEnity, ticket.routeListEnity) && Objects.equals(purchaseStatus, ticket.purchaseStatus);
+        return Objects.equals(firstName, ticket.firstName) && Objects.equals(lastName, ticket.lastName) && Objects.equals(routeListEnity, ticket.routeListEnity) && Objects.equals(uniquePayId, ticket.uniquePayId);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(firstName, lastName, routeListEnity, uniquePayId);
     }
 }

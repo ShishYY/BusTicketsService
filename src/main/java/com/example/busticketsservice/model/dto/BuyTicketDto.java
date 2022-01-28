@@ -3,14 +3,11 @@ package com.example.busticketsservice.model.dto;
 import lombok.Data;
 
 @Data
-public class OrderDto {
-
-    private long routeId;
+public class BuyTicketDto {
 
     private String firstName;
 
     private String lastName;
 
-    private String purchaseStatus;
-
+    private Long routeId;
 }
