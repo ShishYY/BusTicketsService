@@ -6,7 +6,6 @@ CREATE TABLE "user"(
 )
 
 CREATE TABLE "tickets"(
-
 	"id" SERIAL PRIMARY KEY,
 	"passenger_first_name" VARCHAR (60),
 	"passenger_last_name" VARCHAR(60),
