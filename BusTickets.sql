@@ -1,9 +1,22 @@
 CREATE TABLE "user"(
 	"id" SERIAL PRIMARY KEY,
+	"first_name" VARCHAR (20),
+	"last_name" VARCHAR (20),
 	"login" VARCHAR (60),
 	"email" VARCHAR (60),
-	"password" TEXT
-)
+	"password" TEXT,
+);
+
+CREATE TABLE "roles"(
+    "id" SERIAL PRIMARY KEY,
+    "name" VARCHAR (15)
+);
+
+CREATE TABLE "user_roles"(
+    "id" SERIAL PRIMARY KEY,
+    "user_id" BIGINT,
+    "role_id" BIGINT
+);
 
 CREATE TABLE "tickets"(
 	"id" SERIAL PRIMARY KEY,
@@ -26,3 +39,13 @@ ALTER TABLE "tickets"
 	ADD CONSTRAINT "route_id_CT"
 	FOREIGN KEY ("route_id")
 	REFERENCES"route_list"(id);
+
+ALTER TABLE "user_roles"
+    ADD CONSTRAINT "user_role_CT"
+    FOREIGN KEY ("user_id")
+    REFERENCES"user"(id);
+
+ALTER TABLE "user_roles"
+    ADD CONSTRAINT "role_name_CT)"
+    FOREIGN KEY ("role_id")
+    REFERENCES"roles"(id) ;
