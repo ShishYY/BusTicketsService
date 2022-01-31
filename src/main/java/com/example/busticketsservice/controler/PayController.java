@@ -20,15 +20,14 @@ public class PayController {
     }
 
     @PostMapping(value = "/pay")
-    public String payTicket(@RequestBody() PurchaseDto purchase){
+    public String payTicket(@RequestBody() PurchaseDto purchase) {
         return ticketsPayService.payTicket(purchase);
     }
 
     @GetMapping(value = "/pay/status/{uniqueId}")
-    public String getPayStatus(@PathVariable String uniqueId){
+    public String getPayStatus(@PathVariable String uniqueId) {
         return ticketsPayService.doPurchase(uniqueId);
     }
-
 
 
 }

@@ -14,17 +14,17 @@ public final class TicketFactory {
     @Getter
     public static String defaultStatus;
 
-    @Value("${default.purchase.status}")
-    public void setDatabase(String db) {
-        defaultStatus = db;
-    }
-
-        public static TicketEntity createTicket(BuyTicketDto buyTicketDto, RouteListEnity routeListEnity){
+    public static TicketEntity createTicket(BuyTicketDto buyTicketDto, RouteListEnity routeListEnity) {
         TicketEntity ticket = new TicketEntity();
         ticket.setFirstName(buyTicketDto.getFirstName());
         ticket.setLastName(buyTicketDto.getLastName());
         ticket.setRouteListEnity(routeListEnity);
         ticket.setPurchaseStatus(defaultStatus);
         return ticket;
+    }
+
+    @Value("${default.purchase.status}")
+    public void setDatabase(String db) {
+        defaultStatus = db;
     }
 }

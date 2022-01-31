@@ -12,24 +12,24 @@ import java.util.List;
 @RequestMapping("api/v1/routes")
 public class TicketsSystemController {
 
-   private final RouteListService routeListService;
+    private final RouteListService routeListService;
 
     public TicketsSystemController(RouteListService routeListService) {
         this.routeListService = routeListService;
     }
 
     @GetMapping()
-    public List<RouteListEnity> getAllRoutes(){
-            return routeListService.getAllRoute();
-        }
+    public List<RouteListEnity> getAllRoutes() {
+        return routeListService.getAllRoute();
+    }
 
     @PostMapping(value = "/order")
-    public Long doOrder(@RequestBody BuyTicketDto buyTicketDto){
-       return routeListService.doOrder(buyTicketDto);
+    public Long doOrder(@RequestBody BuyTicketDto buyTicketDto) {
+        return routeListService.doOrder(buyTicketDto);
     }
 
     @GetMapping(value = "/ticketinfo/{id}")
-    public ResponseTicketInfoDto ticketInfo(@PathVariable Long id){
+    public ResponseTicketInfoDto ticketInfo(@PathVariable Long id) {
         return routeListService.ticketInfo(id);
     }
 }

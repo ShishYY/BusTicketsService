@@ -7,7 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 import java.util.Optional;
 
 
-public interface RouteListRepository extends JpaRepository<RouteListEnity,Long> {
+public interface RouteListRepository extends JpaRepository<RouteListEnity, Long> {
 
 
     Optional<RouteListEnity> findById(Long id);
