@@ -6,6 +6,7 @@ import com.example.busticketsservice.persistence.entity.TicketEntity;
 import com.example.busticketsservice.persistence.repository.TicketsRepository;
 import com.example.busticketsservice.service.TicketsService;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Random;
@@ -17,6 +18,7 @@ import java.util.UUID;
 public class TicketsPayServiceImpl implements TicketsService {
 
     private final TicketsRepository ticketsRepository;
+
 
     public TicketsPayServiceImpl(TicketsRepository ticketsRepository) {
         this.ticketsRepository = ticketsRepository;
@@ -45,9 +47,12 @@ public class TicketsPayServiceImpl implements TicketsService {
     }
 
     @Override
-    public String payTicket(PurchaseDto purchase) {
+    public String payTicket(PurchaseDto purchase) throws RuntimeException {
         TicketEntity ticket = ticketsRepository.
-                findByFirstNameAndLastNameAndRouteListEnity_Price(purchase.getFirstName(), purchase.getLastName(), purchase.getAmount());
+                findByFirstNameAndLastNameAndRouteListEntity_Price(purchase.getFirstName(), purchase.getLastName(),purchase.getAmount());
+        if(ticket == null){
+            throw new RuntimeException("No ticket for pay");
+        }
         String uniqueId = generateUniqueId();
         ticket.setUniquePayId(uniqueId);
         ticketsRepository.save(ticket);

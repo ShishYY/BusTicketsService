@@ -7,7 +7,7 @@ import java.util.Optional;
 
 public interface TicketsRepository extends JpaRepository<TicketEntity, Long> {
 
-    TicketEntity findByFirstNameAndLastNameAndRouteListEnity_Price(String firstName, String lastName, float price);
+    TicketEntity findByFirstNameAndLastNameAndRouteListEntity_Price(String firstName, String lastName,float price);
 
     TicketEntity findByUniquePayId(String uniq);
 }

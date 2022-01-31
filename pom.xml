@@ -13,9 +13,12 @@
     <version>0.0.1-SNAPSHOT</version>
     <name>BusTicketsService</name>
     <description>BusTicketsService</description>
+
     <properties>
         <java.version>11</java.version>
+        <jsonwebtoken.version>0.9.1</jsonwebtoken.version>
     </properties>
+
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -41,6 +44,13 @@
             <artifactId>h2</artifactId>
             <scope>runtime</scope>
         </dependency>
+        <!-- JSON Web Token lib -->
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt</artifactId>
+            <version>${jsonwebtoken.version}</version>
+        </dependency>
+
         <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>

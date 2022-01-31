@@ -1,7 +1,5 @@
 package com.example.busticketsservice.persistence.entity;
 
-import lombok.Data;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
@@ -10,7 +8,7 @@ import java.util.Objects;
 
 @Entity
 @Table(name = "route_list")
-public class RouteListEnity extends BaseEntity {
+public class RouteListEntity extends BaseEntity {
 
     @Column(name = "from_station")
     private String fromStation;
@@ -30,7 +28,7 @@ public class RouteListEnity extends BaseEntity {
     @Column(name = "price")
     private float price;
 
-    public RouteListEnity() {
+    public RouteListEntity() {
     }
 
     public String getFromStation() {
@@ -85,7 +83,7 @@ public class RouteListEnity extends BaseEntity {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        RouteListEnity that = (RouteListEnity) o;
+        RouteListEntity that = (RouteListEntity) o;
         return seatsInRoute == that.seatsInRoute && freeSeats == that.freeSeats && Float.compare(that.price, price) == 0 && Objects.equals(fromStation, that.fromStation) && Objects.equals(whereStation, that.whereStation) && Objects.equals(departureTime, that.departureTime);
     }
 

@@ -1,7 +1,7 @@
 package com.example.busticketsservice.service;
 
 import com.example.busticketsservice.persistence.EPayStatus;
-import com.example.busticketsservice.persistence.entity.RouteListEnity;
+import com.example.busticketsservice.persistence.entity.RouteListEntity;
 import com.example.busticketsservice.persistence.entity.TicketEntity;
 import com.example.busticketsservice.persistence.repository.RouteListRepository;
 import com.example.busticketsservice.persistence.repository.TicketsRepository;
@@ -38,10 +38,10 @@ public class TicketMonitor {
             ticketEntityList.forEach(ticketEntity -> {
                 if (ticketEntity.getPurchaseStatus().equals(EPayStatus.FAILED.toString())
                         || ticketEntity.getPurchaseStatus().equals(EPayStatus.NEW.toString())) {
-                    RouteListEnity routeListEnity = ticketEntity.getRouteListEnity();
-                    int temp = routeListEnity.getFreeSeats();
-                    routeListEnity.setFreeSeats(temp + 1);
-                    routeListRepository.save(routeListEnity);
+                    RouteListEntity routeListEntity = ticketEntity.getRouteListEntity();
+                    int temp = routeListEntity.getFreeSeats();
+                    routeListEntity.setFreeSeats(temp + 1);
+                    routeListRepository.save(routeListEntity);
                     ticketsRepository.delete(ticketEntity);
                 }
             });

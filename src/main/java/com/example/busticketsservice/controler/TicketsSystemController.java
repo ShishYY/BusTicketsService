@@ -2,7 +2,7 @@ package com.example.busticketsservice.controler;
 
 import com.example.busticketsservice.model.dto.BuyTicketDto;
 import com.example.busticketsservice.model.dto.ResponseTicketInfoDto;
-import com.example.busticketsservice.persistence.entity.RouteListEnity;
+import com.example.busticketsservice.persistence.entity.RouteListEntity;
 import com.example.busticketsservice.service.serviceimpl.RouteListService;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,7 +19,7 @@ public class TicketsSystemController {
     }
 
     @GetMapping()
-    public List<RouteListEnity> getAllRoutes() {
+    public List<RouteListEntity> getAllRoutes() {
         return routeListService.getAllRoute();
     }
 

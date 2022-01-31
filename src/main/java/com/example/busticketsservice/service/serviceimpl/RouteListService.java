@@ -2,7 +2,7 @@ package com.example.busticketsservice.service.serviceimpl;
 
 import com.example.busticketsservice.model.dto.BuyTicketDto;
 import com.example.busticketsservice.model.dto.ResponseTicketInfoDto;
-import com.example.busticketsservice.persistence.entity.RouteListEnity;
+import com.example.busticketsservice.persistence.entity.RouteListEntity;
 import com.example.busticketsservice.persistence.entity.TicketEntity;
 import com.example.busticketsservice.persistence.repository.RouteListRepository;
 import com.example.busticketsservice.persistence.repository.TicketsRepository;
@@ -25,15 +25,15 @@ public class RouteListService {
         this.ticketsRepository = ticketsRepository;
     }
 
-    public List<RouteListEnity> getAllRoute() {
+    public List<RouteListEntity> getAllRoute() {
 
-        List<RouteListEnity> resultList = routeListRepository.findAll();
+        List<RouteListEntity> resultList = routeListRepository.findAll();
         return resultList;
     }
 
     public Long doOrder(BuyTicketDto buyTicketDto) {
         if (hasFreeTickets(buyTicketDto.getRouteId())) {
-            RouteListEnity routeList = routeListRepository.findById(buyTicketDto.getRouteId()).get();
+            RouteListEntity routeList = routeListRepository.findById(buyTicketDto.getRouteId()).get();
             TicketEntity ticket = TicketFactory.createTicket(buyTicketDto, routeList);
             ticketsRepository.save(ticket);
             routeList.setFreeSeats(routeList.getFreeSeats() - 1);
@@ -44,13 +44,13 @@ public class RouteListService {
     }
 
     public boolean hasFreeTickets(Long id) {
-        RouteListEnity routeListEnity = routeListRepository.findById(id).get();
+        RouteListEntity routeListEnity = routeListRepository.findById(id).get();
         return routeListEnity.getFreeSeats() > 0;
     }
 
     public ResponseTicketInfoDto ticketInfo(Long id) {
         TicketEntity ticket = ticketsRepository.findById(id).get();
-        RouteListEnity routeList = ticket.getRouteListEnity();
+        RouteListEntity routeList = ticket.getRouteListEntity();
         return new ResponseTicketInfoDto(routeList.getFromStation(),
                 routeList.getWhereStation(),
                 routeList.getDepartureTime(),
