@@ -50,7 +50,33 @@
           "response": []
         }
       ],
-      "id": "d0028cf0-7fc1-41ec-9dc9-38c9be49205b"
+      "id": "d0028cf0-7fc1-41ec-9dc9-38c9be49205b",
+      "auth": {
+        "type": "bearer",
+        "bearer": {}
+      },
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "id": "21629669-9431-41ca-841c-f021768799f3",
+            "type": "text/javascript",
+            "exec": [
+              ""
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "id": "26418436-4428-4712-b708-3d8c0c67e8e4",
+            "type": "text/javascript",
+            "exec": [
+              ""
+            ]
+          }
+        }
+      ]
     },
     {
       "name": "getAllRoutes",
