@@ -10,7 +10,7 @@ public class RoleEntity extends BaseEntity{
     @Column(name = "name")
     private String roleName;
 
-    @ManyToMany(mappedBy = "roles",fetch = FetchType.LAZY)
+    @ManyToMany(mappedBy = "roles",fetch = FetchType.EAGER)
     private List<UserEntity> users;
 
     public RoleEntity() {

@@ -5,6 +5,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "\"user\"")
+
 public class UserEntity extends BaseEntity {
 
     @Column(name = "first_name")

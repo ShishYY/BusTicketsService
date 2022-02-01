@@ -2,6 +2,10 @@ package com.example.busticketsservice.service;
 
 import com.example.busticketsservice.model.dto.RouteListDto;
 import com.example.busticketsservice.model.dto.UpdateUserDto;
+import com.example.busticketsservice.model.dto.UserDto;
+import com.example.busticketsservice.persistence.entity.UserEntity;
+
+import java.util.List;
 
 public interface AdminService {
 
@@ -17,4 +21,5 @@ public interface AdminService {
 
     void getAllTicketsFromRoute(Long routeId);
 
+    List<UserDto> getAllUsers();
 }
