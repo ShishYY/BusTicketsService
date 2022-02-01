@@ -20,6 +20,19 @@
             "url": null
           },
           "response": []
+        },
+        {
+          "name": "New Request",
+          "id": "17fc3099-0eb4-417f-b775-44e9880f5907",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": null
+          },
+          "response": []
         }
       ],
       "id": "d0028cf0-7fc1-41ec-9dc9-38c9be49205b"
