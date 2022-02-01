@@ -30,7 +30,16 @@
           "request": {
             "method": "POST",
             "header": [],
-            "url": "http://localhost:8083/api/v1/"
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"email\": \"Admin@gmail.com\",\n    \"password\": \"test\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "http://localhost:8083/api/v1/auth/login"
           },
           "response": []
         }
