@@ -6,12 +6,91 @@
   },
   "item": [
     {
+      "name": "Admin",
+      "item": [
+        {
+          "name": "getAllUsers",
+          "id": "65a43589-57b4-46b1-82c6-507076c7ff72",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": {
+                "token": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJBZG1pbkBnbWFpbC5jb20iLCJyb2xlcyI6WyJST0xFX1VTRVIiLCJST0xFX0FETUlOIl0sImlhdCI6MTY0MzcxMTQ2OSwiZXhwIjoxNjQzNzQ3NDY5fQ.eb6grIVF0WAF---LKBpNWWufqw0IbxtzAfmW_1ofUhc"
+              }
+            },
+            "method": "GET",
+            "header": [],
+            "url": "http://localhost:8083/api/v1/admin/users"
+          },
+          "response": []
+        },
+        {
+          "name": "loginAdmin",
+          "id": "17fc3099-0eb4-417f-b775-44e9880f5907",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"email\": \"Admin@gmail.com\",\n    \"password\": \"test\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "http://localhost:8083/api/v1/auth/login"
+          },
+          "response": []
+        }
+      ],
+      "id": "d0028cf0-7fc1-41ec-9dc9-38c9be49205b",
+      "auth": {
+        "type": "bearer",
+        "bearer": {}
+      },
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "id": "21629669-9431-41ca-841c-f021768799f3",
+            "type": "text/javascript",
+            "exec": [
+              ""
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "id": "26418436-4428-4712-b708-3d8c0c67e8e4",
+            "type": "text/javascript",
+            "exec": [
+              ""
+            ]
+          }
+        }
+      ]
+    },
+    {
       "name": "getAllRoutes",
-      "_postman_id": "93b16396-7f06-45ca-972b-76eb10919065",
+      "id": "93b16396-7f06-45ca-972b-76eb10919065",
       "protocolProfileBehavior": {
         "disableBodyPruning": true
       },
       "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": {
+            "token": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJBZG1pbkBnbWFpbC5jb20iLCJyb2xlcyI6WyJST0xFX1VTRVIiLCJST0xFX0FETUlOIl0sImlhdCI6MTY0MzcyMzQxMSwiZXhwIjoxNjQ0MDgzNDExfQ.XrN7EHLlk3xk0IfXMW7C4De57kRhGXLUxAgu0wvSZiQ"
+          }
+        },
         "method": "GET",
         "header": [],
         "url": "http://localhost:8083/api/v1/routes"
@@ -20,7 +99,7 @@
     },
     {
       "name": "pay",
-      "_postman_id": "423c3af4-14ed-4f38-8bb9-70e7b05d0bd1",
+      "id": "423c3af4-14ed-4f38-8bb9-70e7b05d0bd1",
       "protocolProfileBehavior": {
         "disableBodyPruning": true
       },
@@ -48,7 +127,7 @@
     },
     {
       "name": "doOrder",
-      "_postman_id": "7937fefe-c8c5-43f9-bfd8-4378ec4a3a63",
+      "id": "7937fefe-c8c5-43f9-bfd8-4378ec4a3a63",
       "protocolProfileBehavior": {
         "disableBodyPruning": true
       },
@@ -70,11 +149,17 @@
     },
     {
       "name": "getInfo",
-      "_postman_id": "3a5a0f76-6a34-4a35-8ed4-99613c7191b9",
+      "id": "3a5a0f76-6a34-4a35-8ed4-99613c7191b9",
       "protocolProfileBehavior": {
         "disableBodyPruning": true
       },
       "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": {
+            "token": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0QGdtYWlsLmNvbSIsInJvbGVzIjpbIlJPTEVfVVNFUiJdLCJpYXQiOjE2NDM2NTEyNzYsImV4cCI6MTY0MzY4NzI3Nn0.sbh3f7EGXaPyQe42wqiZdjIKhLQvlIOUZU6-lVRpMj0"
+          }
+        },
         "method": "GET",
         "header": [],
         "url": "http://localhost:8083/api/v1/routes/order"
@@ -83,7 +168,7 @@
     },
     {
       "name": "login",
-      "_postman_id": "901b7b93-e24f-4120-838c-f9e7b513868f",
+      "id": "901b7b93-e24f-4120-838c-f9e7b513868f",
       "protocolProfileBehavior": {
         "disableBodyPruning": true
       },
