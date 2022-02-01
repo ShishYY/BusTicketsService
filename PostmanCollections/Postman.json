@@ -85,6 +85,12 @@
         "disableBodyPruning": true
       },
       "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": {
+            "token": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJBZG1pbkBnbWFpbC5jb20iLCJyb2xlcyI6WyJST0xFX1VTRVIiLCJST0xFX0FETUlOIl0sImlhdCI6MTY0MzcyMzQxMSwiZXhwIjoxNjQ0MDgzNDExfQ.XrN7EHLlk3xk0IfXMW7C4De57kRhGXLUxAgu0wvSZiQ"
+          }
+        },
         "method": "GET",
         "header": [],
         "url": "http://localhost:8083/api/v1/routes"
