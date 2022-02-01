@@ -9,7 +9,7 @@
       "name": "Admin",
       "item": [
         {
-          "name": "New Request",
+          "name": "getAllUsers",
           "id": "65a43589-57b4-46b1-82c6-507076c7ff72",
           "protocolProfileBehavior": {
             "disableBodyPruning": true
