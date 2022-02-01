@@ -28,9 +28,9 @@
             "disableBodyPruning": true
           },
           "request": {
-            "method": "GET",
+            "method": "POST",
             "header": [],
-            "url": null
+            "url": "http://localhost:8083/api/v1/"
           },
           "response": []
         }
