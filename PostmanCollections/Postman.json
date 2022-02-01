@@ -15,9 +15,15 @@
             "disableBodyPruning": true
           },
           "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": {
+                "token": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJBZG1pbkBnbWFpbC5jb20iLCJyb2xlcyI6WyJST0xFX1VTRVIiLCJST0xFX0FETUlOIl0sImlhdCI6MTY0MzcxMTQ2OSwiZXhwIjoxNjQzNzQ3NDY5fQ.eb6grIVF0WAF---LKBpNWWufqw0IbxtzAfmW_1ofUhc"
+              }
+            },
             "method": "GET",
             "header": [],
-            "url": null
+            "url": "http://localhost:8083/api/v1/admin/users"
           },
           "response": []
         },
