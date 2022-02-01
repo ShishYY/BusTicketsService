@@ -22,7 +22,7 @@
           "response": []
         },
         {
-          "name": "New Request",
+          "name": "loginAdmin",
           "id": "17fc3099-0eb4-417f-b775-44e9880f5907",
           "protocolProfileBehavior": {
             "disableBodyPruning": true
