@@ -1,4 +1,3 @@
-/*
 package com.example.busticketsservice.config;
 
 import org.springframework.context.annotation.Configuration;
@@ -12,4 +11,4 @@ public class WebSecurityConfigDisable extends WebSecurityConfigurerAdapter {
     public void configure(WebSecurity web) throws Exception {
         web.ignoring().antMatchers("/**");
     }
-}*/
+}
