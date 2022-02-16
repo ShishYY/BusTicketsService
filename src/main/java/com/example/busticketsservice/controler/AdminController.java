@@ -38,15 +38,14 @@ public class AdminController {
         adminService.addRoute(routeListDto);
     };
 
-    @DeleteMapping("/route")
-    public void deleteRoute(Long routeId){};
+    @DeleteMapping("/route/{routeId}")
+    public void deleteRoute(@PathVariable Long routeId){
+        adminService.deleteRoute(routeId);
+    };
 
     @PutMapping("/route")
     public void updateRoute(RouteListDto routeListDto){};
 
     @GetMapping("/tickets")
     public void getAllTicketsFromRoute(Long routeId){};
-
-
-
 }

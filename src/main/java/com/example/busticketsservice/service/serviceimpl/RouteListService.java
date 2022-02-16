@@ -1,6 +1,7 @@
 package com.example.busticketsservice.service.serviceimpl;
 
 import com.example.busticketsservice.model.dto.BuyTicketDto;
+import com.example.busticketsservice.model.dto.PurchaseDto;
 import com.example.busticketsservice.model.dto.ResponseTicketInfoDto;
 import com.example.busticketsservice.persistence.entity.RouteListEntity;
 import com.example.busticketsservice.persistence.entity.TicketEntity;
@@ -9,6 +10,7 @@ import com.example.busticketsservice.persistence.repository.TicketsRepository;
 import com.example.busticketsservice.service.TicketFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
 
@@ -38,6 +40,7 @@ public class RouteListService {
             ticketsRepository.save(ticket);
             routeList.setFreeSeats(routeList.getFreeSeats() - 1);
             routeListRepository.save(routeList);
+            payForTicket(buyTicketDto);
             return ticket.getId();
         }
         throw new RuntimeException("There no free seats in this route");
@@ -55,6 +58,18 @@ public class RouteListService {
                 routeList.getWhereStation(),
                 routeList.getDepartureTime(),
                 ticket.getPurchaseStatus());
+    }
+
+    public String payForTicket(BuyTicketDto buyTicketDto){
+        RestTemplate restTemplate = new RestTemplate();/*http://localhost:8083/api/v1/pay*/
+        PurchaseDto purchaseDto = new PurchaseDto();
+        purchaseDto.setFirstName(buyTicketDto.getFirstName());
+        purchaseDto.setLastName(buyTicketDto.getLastName());
+        purchaseDto.setAmount(100);
+        purchaseDto.setRouteId(buyTicketDto.getRouteId());
+        String payStatus =  restTemplate.postForObject("http://localhost:8083/api/v1/pay",purchaseDto,String.class);
+        System.out.println(payStatus);
+        return payStatus;
     }
 
 

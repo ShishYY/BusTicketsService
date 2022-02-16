@@ -1,3 +1,4 @@
+/*
 package com.example.busticketsservice.config;
 
 import com.example.busticketsservice.security.jwt.JwtConfigure;
@@ -37,3 +38,4 @@ public class WebSecurityConfigEnable extends WebSecurityConfigurerAdapter {
 
     }
 }
+*/

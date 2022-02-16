@@ -90,7 +90,9 @@ public class AdminServiceImp implements AdminService {
 
     @Override
     public void deleteRoute(Long routeId) {
+        routeListRepository.deleteById(routeId);
 
+        log.info("Route with id:{} deleted",routeId);
     }
 
     @Override
