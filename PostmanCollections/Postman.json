@@ -132,18 +132,24 @@
         "disableBodyPruning": true
       },
       "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": {
+            "token": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0QGdtYWlsLmNvbSIsInJvbGVzIjpbIlJPTEVfVVNFUiJdLCJpYXQiOjE2NDUwMjQwMTQsImV4cCI6MTY0NTM4NDAxNH0.g-Tabq-aa7E1iRtMZJTlWFuriVdMFhkwMpLwRrPtEDI"
+          }
+        },
         "method": "POST",
         "header": [],
         "body": {
           "mode": "raw",
-          "raw": "{\n    \n}",
+          "raw": "{\n    \"firstName\":\"Test\",\n    \"lastName\":\"Tetovich\",\n    \"routeId\":1\n}",
           "options": {
             "raw": {
               "language": "json"
             }
           }
         },
-        "url": "http://localhost:8083/api/v1/route/order"
+        "url": "http://localhost:8083/api/v1/routes/order"
       },
       "response": []
     },
@@ -157,12 +163,12 @@
         "auth": {
           "type": "bearer",
           "bearer": {
-            "token": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0QGdtYWlsLmNvbSIsInJvbGVzIjpbIlJPTEVfVVNFUiJdLCJpYXQiOjE2NDM2NTEyNzYsImV4cCI6MTY0MzY4NzI3Nn0.sbh3f7EGXaPyQe42wqiZdjIKhLQvlIOUZU6-lVRpMj0"
+            "token": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0QGdtYWlsLmNvbSIsInJvbGVzIjpbIlJPTEVfVVNFUiJdLCJpYXQiOjE2NDUwMjQwMTQsImV4cCI6MTY0NTM4NDAxNH0.g-Tabq-aa7E1iRtMZJTlWFuriVdMFhkwMpLwRrPtEDI"
           }
         },
         "method": "GET",
         "header": [],
-        "url": "http://localhost:8083/api/v1/routes/order"
+        "url": "http://localhost:8083/api/v1/routes"
       },
       "response": []
     },
