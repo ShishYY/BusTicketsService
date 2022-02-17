@@ -160,15 +160,18 @@
         "disableBodyPruning": true
       },
       "request": {
-        "auth": {
-          "type": "bearer",
-          "bearer": {
-            "token": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0QGdtYWlsLmNvbSIsInJvbGVzIjpbIlJPTEVfVVNFUiJdLCJpYXQiOjE2NDUwMjQwMTQsImV4cCI6MTY0NTM4NDAxNH0.g-Tabq-aa7E1iRtMZJTlWFuriVdMFhkwMpLwRrPtEDI"
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": " {\n    \"fromStation\":\"Kharkiv\",\n\n    \"whereStation\":\"Dnipro\",\n\n    \"seatsNumber\": 30,\n\n    \"departureDate\": \"2022-02-20T10:30:00\",\n\n    \"price\": 200\n }",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
           }
         },
-        "method": "GET",
-        "header": [],
-        "url": "http://localhost:8083/api/v1/routes"
+        "url": "http://localhost:8083/api/v1/admin/route"
       },
       "response": []
     },
