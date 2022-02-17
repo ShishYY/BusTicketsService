@@ -154,7 +154,7 @@
       "response": []
     },
     {
-      "name": "getInfo",
+      "name": "addRoute",
       "id": "3a5a0f76-6a34-4a35-8ed4-99613c7191b9",
       "protocolProfileBehavior": {
         "disableBodyPruning": true
