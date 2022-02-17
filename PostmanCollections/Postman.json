@@ -196,6 +196,19 @@
         "url": "http://localhost:8083/api/v1/auth/login"
       },
       "response": []
+    },
+    {
+      "name": "TicketInfo",
+      "id": "eec36b2e-c08c-4010-99db-3fec4be6d6cd",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "http://localhost:8083/api/v1/routes/ticketinfo/21"
+      },
+      "response": []
     }
   ]
 }
